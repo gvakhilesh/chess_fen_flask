@@ -83,4 +83,4 @@ if __name__ == "__main__":
     # Ensure the uploads directory exists
     os.makedirs('uploads', exist_ok=True)
     
-    app.run()
+    app.run(port=5000)
