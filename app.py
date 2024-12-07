@@ -70,10 +70,10 @@ def predict():
         # Save the image to a temporary location
         image_path = os.path.join('uploads', image.filename)
         image.save(image_path)
-
+        print("recieved")
         # Get FEN prediction
         fen = predict_fen(image_path)
-        
+        print(fen)
         
         # Return the FEN as plain text
         return jsonify({"fen": fen}), 200
