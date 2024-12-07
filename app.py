@@ -4,12 +4,13 @@ from skimage import io, transform
 import tensorflow as tf
 import numpy as np
 from tensorflow import keras
+from flask_cors import CORS
 import os
 from tensorflow.keras.models import load_model
 port=5000
 # Set the environment variable to disable oneDNN optimizations
 app = Flask(__name__)
-
+CORS(app) 
 # Function to convert one-hot encoded array to FEN notation
 def fen_from_onehot(one_hot):
     piece_symbols = 'PNBRQKpnbrqk'
@@ -54,7 +55,7 @@ def predict_fen(image_path):
 
 
 # Endpoint to receive image file and return the predicted FEN
-@app.route("/predict_fen", methods=["POST"])
+@app.route("/predict_fen", methods=["GET","POST"])
 def predict():
     """
     Endpoint to receive image file and return the predicted FEN as plain text.
