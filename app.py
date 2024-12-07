@@ -50,6 +50,9 @@ def predict_fen(image_path):
     fen = fen_from_onehot(pred[0])
     return fen
 
+@app.route("/")
+def home():
+    return "Welcome to the Home Page!", 200
 
 # Endpoint to receive image file and return the predicted FEN
 @app.route("/predict_fen", methods=["POST"])
