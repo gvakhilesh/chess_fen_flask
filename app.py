@@ -53,9 +53,11 @@ def predict_fen(image_path):
     return fen
 
 
-
+@app.route("/", methods=["GET"])
+def home():
+    return "Flask service is running!", 200
 # Endpoint to receive image file and return the predicted FEN
-@app.route("/predict_fen", methods=["GET","POST"])
+@app.route("/predict_fen", methods=["POST"])
 def predict():
     """
     Endpoint to receive image file and return the predicted FEN as plain text.
@@ -66,11 +68,11 @@ def predict():
 
         if not image:
             return jsonify({"error": "No image file provided"}), 400
-
+        print("recieved")
         # Save the image to a temporary location
         image_path = os.path.join('uploads', image.filename)
         image.save(image_path)
-        print("recieved")
+        
         # Get FEN prediction
         fen = predict_fen(image_path)
         print(fen)
