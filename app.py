@@ -7,7 +7,6 @@ from tensorflow import keras
 import os
 from tensorflow.keras.models import load_model
 # Set the environment variable to disable oneDNN optimizations
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 app = Flask(__name__)
 
 # Function to convert one-hot encoded array to FEN notation
