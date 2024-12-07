@@ -6,6 +6,7 @@ import numpy as np
 from tensorflow import keras
 import os
 from tensorflow.keras.models import load_model
+port=5000
 # Set the environment variable to disable oneDNN optimizations
 app = Flask(__name__)
 
@@ -84,4 +85,4 @@ if __name__ == "__main__":
     # Ensure the uploads directory exists
     os.makedirs('uploads', exist_ok=True)
     
-    app.run(port=5000)
+    app.run(port)
