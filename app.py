@@ -53,7 +53,7 @@ def predict_fen(image_path):
 
 
 # Endpoint to receive image file and return the predicted FEN
-@app.route("/", methods=["POST"])
+@app.route("/predict_fen", methods=["POST"])
 def predict():
     """
     Endpoint to receive image file and return the predicted FEN as plain text.
