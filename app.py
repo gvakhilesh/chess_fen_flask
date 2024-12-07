@@ -71,7 +71,7 @@ def predict():
 
         # Get FEN prediction
         fen = predict_fen(image_path)
-        print(f"Predicted FEN: {fen}")
+        
         
         # Return the FEN as plain text
         return jsonify({"fen": fen}), 200
